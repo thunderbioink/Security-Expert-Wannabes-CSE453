@@ -3,9 +3,23 @@
 # DEFINE FUNCTIONS HERE
 # ==============================================#
 
-# NEED: Canonicalization function
+# This is the Rendering function that takes an input and returns a rendition
+def R(e):
+    print("Do something with" + e)
+    r = e
+    return r
 
+# NEED: Canonicalization function
+def C():
+    c = R(e)
+    c = "canon"
+    return c
 # NEED: homograph function
+def H(c):
+    print("Use " + c + "in comparing two file paths are the same")
+
+
+    
 
 # NEED/WANT? non-homographic test cases (this is where all the different test cases will be held)
 
