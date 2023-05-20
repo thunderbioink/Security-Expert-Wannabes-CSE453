@@ -1,3 +1,6 @@
+#  We need this library to interact with the File Paths on our OS
+import os 
+
 # DEFINE FUNCTIONS HERE
 # ==============================================#
 
