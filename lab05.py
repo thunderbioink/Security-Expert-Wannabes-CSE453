@@ -22,6 +22,11 @@ def run_manual_compare():
     firstFilename = input("Please enter first filename: ")
     print() # Blank space
     secondFilename = input("Please enter second filename: ")
+    if firstFilename == secondFilename:
+        print("The sets are homographs")
+    else:
+        print("Files are diffrent")
+
 
 
 ### MAIN ENTRY OF PROGRAM -- MENU ###
