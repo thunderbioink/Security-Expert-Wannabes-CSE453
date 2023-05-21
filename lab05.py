@@ -1,48 +1,176 @@
-
-
 # DEFINE FUNCTIONS HERE
 # ==============================================#
 
 # This is the Rendering function that takes an input and returns a rendition
-def R(e):
-    print("Do something with" + e)
-    r = e
-    return r
+def R(is_homograph):
+    
+    if not is_homograph:
+        
+        return "\nResult: Not Homograph!"
+    
+    return ("\nResult: Homograph.")
 
-# NEED: Canonicalization function
-def C():
-    c = R(e)
-    c = "canon"
-    return c
-# NEED: homograph function
-def H(c):
-    print("Use " + c + "in comparing two file paths are the same")
+# Here is Canonicalization function
 
+def C(file_name):
+    # \secret\password.txt
 
+    file_to_split = file_name.split("\\")
+    
+    # Loop to check and remove single period file path: 
+    for data in file_to_split:
+        
+        if data == '.':
+            
+            file_to_split.remove(data)
+    
+    array_data = []
+    
+    
+    # Loop to check and remove double period file path: 
+    for data in file_to_split:
+        if data == "..":
+            if array_data and array_data[-1] != "..":
+                array_data.pop()
+            
+            else:
+                array_data.append('..')
+        
+        else:
+            array_data.append(data)
     
 
+    cannonized_path = '\\'.join(array_data)
+    
+    # if file_name.startswith("C:")
+    
+    return cannonized_path
+
+# Here is Homograph function:
+def H (canonized_path_1, canonized_path_2):
+#     print("Use " + c + "in comparing two file paths are the same")
+    
+    if canonized_path_1 != canonized_path_2:
+        
+        return False
+    
+    return True
+    
 # NEED/WANT? non-homographic test cases (this is where all the different test cases will be held)
 
 # NEED/WANT? homographic test cases (this is where all the different homographic test cases will be)
 
+
 ### This is option 1 in the menu ###
 def run_test_cases():
-    print("Test Case!") # Test to make sure function works
 
-    # Function for running non-homographic test cases?
+    FORBIDDEN_FILE = "C:\\secret\\password.txt"
+    
+    """
+    For each Test case run Steps 1-3:
+    
+    HOMOGRAPHS:                        
+        1)	
+            a)	Location 1:
+            b)	Location 2:
 
-    # Function for running homographic test cases?
+        2)	../
+            a)	Location 3:
+            b)	Location 4:
 
+        3)	./../
+            a)	Location 5:
+            b)	Location 6:
+
+
+        NON-HOMOGRAPHS
+        4)	./
+            a)	Location 1:
+            b)	Location 2:
+
+        5)	../
+            a) Location 1:
+            b)	Location 2:
+
+        6)	./../
+            a) Location 1:
+            b) Location 2:
+    """
+# Define Homograph Test Cases
+
+    # Homograph Test Dictionary:
+    # 1. Call the C()
+
+    # 2. Call the H()
+
+    # 3. Display results: H OR Non-H?
+    
+    homograph_set = {
+        
+        "Case 1a" : "C:\\secret\\..\\secret\\password.txt", 
+        "Case 1b" : "\\..\\C:\\secret\\password.txt", 
+        "Case 2a" : "C:\\.\\secret\\..\\secret\\..\\secret\\..\\secret\\password.txt", 
+        "Case 2b" : "C:\\.\\secret\\password.txt", 
+        "Case 3a" : "C:\\.\\secret\\..\\..\\C:\\secret\\..\\secret\\.\\password.txt", 
+        "Case 3b" : "C:\\secret\\.\\..\\secret\\password.txt"
+        
+        }
+    
+    for item in homograph_set.values():
+        
+        cannonized_item = C(item)
+        result = H(cannonized_item, FORBIDDEN_FILE)
+        print (R(result))
+
+    # Non-homograph Dictionary:
+    # 1. Call the C()
+
+    # 2. Call the H()
+
+    # 3. Display results: H OR Non-H?
+    
+    non_homograph_set = {
+        
+        "Case 4a":"secret\\password_1.text", 
+        "Case 4b":"..\.\secret_1\\password.txt", 
+        "Case 5a":"..\.\secret_1\\password_2.txt", 
+        "Case 5b":"..\..\.\.\passwords.txt", 
+        "Case 6a":"secrets\\password.txt", 
+        "Case 6b":"C:\\secrets\\..\\secret\\password_1.txt"
+        
+        }
+    
+    for item in non_homograph_set.values():
+        
+        # Print Case # for the user, and print it's subsequent Value
+        # EX Terminal "Case 4a: "secret\\password_1.text"
+        #              Result: Non-homograph
+        C(item)
+        result = H(item, FORBIDDEN_FILE)
+        
+        # Build format print of Dictionary values:
+        
+        
+        print (R(result))
+        print("\n") # Blank space
+    
 ### This is option 2 in the menu ###
 def run_manual_compare():
     firstFilename = input("Please enter first filename: ")
     print() # Blank space
     secondFilename = input("Please enter second filename: ")
+    
+
+    # Call C() for both filenames
+
+    # Call H(), pass in both user's filenames
+
+    # Print the R(), passing in the H()'s result
+    
     if firstFilename == secondFilename:
         print("The sets are homographs")
     else:
         print("Files are diffrent")
-
 
 
 ### MAIN ENTRY OF PROGRAM -- MENU ###
@@ -69,7 +197,6 @@ while(True):
         print("Sorry, you have entered in a wrong value. Please look at the menu again and enter a number value")
         print() # Blank line
         continue
-
     
     # Use swtich case now since user input is a valid option at this point.
     match int(option):
