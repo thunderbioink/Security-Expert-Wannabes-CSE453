@@ -1,4 +1,12 @@
-# DEFINE FUNCTIONS HERE
+"""
+CSE 453 SPRING 2023 - Lab 05: HOMOGRAPHS PYTHON FILE 
+
+Team 5:
+    Alma Camarillo
+    Chase Moses
+    Darcy Merilan
+    Vilma Campos
+"""
 # ==============================================#
 
 # This is the Rendering function that takes an input and returns a rendition
@@ -6,9 +14,9 @@ def R(is_homograph):
     
     if not is_homograph:
         
-        return "\nResult: Not Homograph!"
+        return "Result: Not Homograph!\n"
     
-    return ("\nResult: Homograph.")
+    return ("Result: Homograph.\n")
 
 # Here is Canonicalization function
 
@@ -69,33 +77,22 @@ def run_test_cases():
     For each Test case run Steps 1-3:
     
     HOMOGRAPHS:                        
-        1)	
-            a)	Location 1:
-            b)	Location 2:
+    - Case 1a --> C:
+    - Case 1b --> \\
+    - Case 2a --> C:
+    - Case 2b --> C:
+    - Case 3a --> C:
+    - Case 3b --> C:
 
-        2)	../
-            a)	Location 3:
-            b)	Location 4:
-
-        3)	./../
-            a)	Location 5:
-            b)	Location 6:
-
-
-        NON-HOMOGRAPHS
-        4)	./
-            a)	Location 1:
-            b)	Location 2:
-
-        5)	../
-            a) Location 1:
-            b)	Location 2:
-
-        6)	./../
-            a) Location 1:
-            b) Location 2:
+    NON-HOMOGRAPHS
+    - Case 4a --> secret
+    - Case 4b --> ..
+    - Case 5a --> ..
+    - Case 5b --> ..
+    - Case 6a --> secrets
+    - Case 6b --> C:
+       
     """
-# Define Homograph Test Cases
 
     # Homograph Test Dictionary:
     # 1. Call the C()
@@ -115,9 +112,10 @@ def run_test_cases():
         
         }
     
-    for item in homograph_set.values():
+    for item in homograph_set:
         
-        cannonized_item = C(item)
+        print("\nNow Testing ", item, ": ", homograph_set[item], "against forbidden file ", FORBIDDEN_FILE, ":")
+        cannonized_item = C(homograph_set[item])
         result = H(cannonized_item, FORBIDDEN_FILE)
         print (R(result))
 
@@ -131,27 +129,23 @@ def run_test_cases():
     non_homograph_set = {
         
         "Case 4a":"secret\\password_1.text", 
-        "Case 4b":"..\.\secret_1\\password.txt", 
-        "Case 5a":"..\.\secret_1\\password_2.txt", 
-        "Case 5b":"..\..\.\.\passwords.txt", 
+        "Case 4b":"..\\.\\secret_1\\password.txt", 
+        "Case 5a":"..\\.\\secret_1\\password_2.txt", 
+        "Case 5b":"..\\..\\.\\.\\passwords.txt", 
         "Case 6a":"secrets\\password.txt", 
         "Case 6b":"C:\\secrets\\..\\secret\\password_1.txt"
         
         }
     
-    for item in non_homograph_set.values():
+    for item in non_homograph_set:
         
         # Print Case # for the user, and print it's subsequent Value
         # EX Terminal "Case 4a: "secret\\password_1.text"
         #              Result: Non-homograph
-        cannonized_item = C(item)
+        print("\nNow Testing ", item, ": ", non_homograph_set[item], "against forbidden file ", FORBIDDEN_FILE, ":")
+        cannonized_item = C(non_homograph_set[item])
         result = H(cannonized_item, FORBIDDEN_FILE)
-        
-        # Build format print of Dictionary values:
-        
-        
         print (R(result))
-        print("\n") # Blank space
     
 ### This is option 2 in the menu ###
 def run_manual_compare():
@@ -215,8 +209,24 @@ while(True):
 
 
 
+"""
+
+`;-.          ___,
+  `.`\_...._/`.-"`
+    \        /      ,
+    /()   () \    .' `-._
+   |)  .    ()\  /   _.'
+   \  -'-     ,; '. <
+    ;.__     ,;|   > \
+   / ,    / ,  |.-'.-'
+  (_/    (_/ ,;|.<`
+    \    ,     ;-`
+     >   \    /
+    (_,-'`> .'
+          (_,'
+
+THANK YOU FOR YOUR TIME! :)
+
+"""
 
 
-
-
-    
