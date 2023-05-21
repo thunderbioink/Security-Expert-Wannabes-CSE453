@@ -13,7 +13,6 @@ def R(is_homograph):
 # Here is Canonicalization function
 
 def C(file_name):
-    # \secret\password.txt
 
     file_to_split = file_name.split("\\")
     
@@ -145,8 +144,8 @@ def run_test_cases():
         # Print Case # for the user, and print it's subsequent Value
         # EX Terminal "Case 4a: "secret\\password_1.text"
         #              Result: Non-homograph
-        C(item)
-        result = H(item, FORBIDDEN_FILE)
+        cannonized_item = C(item)
+        result = H(cannonized_item, FORBIDDEN_FILE)
         
         # Build format print of Dictionary values:
         
@@ -156,21 +155,26 @@ def run_test_cases():
     
 ### This is option 2 in the menu ###
 def run_manual_compare():
-    firstFilename = input("Please enter first filename: ")
-    print() # Blank space
-    secondFilename = input("Please enter second filename: ")
+
+    """Forbidden file - this is the path you should copy/paste 
+    on the terminal for the input value of filename1 
+    when comparing to filename2 input: C:\secret\password.txt"""
+    # Get file names from user
+    first_Filename = input(str("\nPlease enter first filename: "))
+    second_Filename = input(str("\nPlease enter second filename: "))
     
 
     # Call C() for both filenames
+    canonized_filename1 = C(first_Filename)
+    canonized_filename2 = C(second_Filename)
 
     # Call H(), pass in both user's filenames
+    print("\nNow comparing", first_Filename, " and ", second_Filename)
+    result = H(canonized_filename1, canonized_filename2)
 
     # Print the R(), passing in the H()'s result
-    
-    if firstFilename == secondFilename:
-        print("The sets are homographs")
-    else:
-        print("Files are diffrent")
+    print(R(result), "\n")
+
 
 
 ### MAIN ENTRY OF PROGRAM -- MENU ###
