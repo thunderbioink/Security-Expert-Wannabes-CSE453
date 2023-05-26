@@ -146,22 +146,22 @@ def test_comment(query_function):
 ## TODO: Create a function to provide weak mitigation against ALL four attacks (one function!)
 ## Show that all four malicious inputs are mitigated based on the test cases.
 def gen_query_weak(username, password):
-    return "This will replace the gen_query() function"
+    return "This is the weak mitigation function"
 
 '''STEP 4: STRONG MITIGATION'''
 
 ## TODO: Create a function that provides strong mitigation against all command
 ## injection attacks. Show that all four malicious inputs are mitigated based on
 ## test cases.
-def gen_query_strong():
-    return "This will replace the gen_query() function"
+def gen_query_strong(username, password):
+    return "This is the strong mitigation function"
 
 
 ### THIS FUNCTION IS THE ENTRY POINT FOR ALL OTHER FUNCTIONS ###
 def start_sql_simulation():
     
     # This section is to test NO MITIGATION using gen_query()
-    print("Now testing NO MITIGATION\n")
+    print("NOW TESTING NO MITIGATION\n")
     test_valid(gen_query)
     test_tautology(gen_query)
     test_union(gen_query)
@@ -169,7 +169,7 @@ def start_sql_simulation():
     test_comment(gen_query)
 
     # This section is to test WEAK MITIGATION using gen_query_weak()
-    print("Now testing WEAK MITIGATION\n")
+    print("\n\nNOW TESTING WEAK MITIGATION\n")
     test_valid(gen_query_weak)
     test_tautology(gen_query_weak)
     test_union(gen_query_weak)
@@ -177,7 +177,7 @@ def start_sql_simulation():
     test_comment(gen_query_weak)
 
     # This section is to test STRONG MITIGATION using gen_query_strong()
-    print("Now testing WEAK MITIGATION\n")
+    print("\n\nNOW TESTING STRONG MITIGATION\n")
     test_valid(gen_query_strong)
     test_tautology(gen_query_strong)
     test_union(gen_query_strong)
