@@ -1,31 +1,4 @@
 
-
-'''STEP 2: VULNERABILITIES'''
-## TODO: Generate test cases (one for each member) that demostrates a tautology attack
-
-## TODO: Create a function that feeds these test cases through the query function and
-## Displays the output.
-
-''' DO STEP 2 FOR UNION QUERY ATTACK, AN ADDITIONAL STATEMENT ATTACK, AND A COMMENT
-    ATTACK.'''
-## TODO: Union Query Attack test case and function
-
-## TODO: Additional Statement Attack test cases and function
-
-## TODO: Comment Attack test cases and function
-
-
-'''STEP 3: WEAK MITIGATION'''
-
-## TODO: Create a function to provide weak mitigation against ALL four attacks (one function!)
-## Show that all four malicious inputs are mitigated based on the test cases.
-
-'''STEP 4: STRONG MITIGATION'''
-
-## TODO: Create a function that provides strong mitigation against all command
-## injection attacks. Show that all four malicious inputs are mitigated based on
-## test cases.
-
 ### DEFINE FUNCTIONS and TEST CASE ARRAYS HERE ###
 
 '''STEP 1: QUERY GENERATION '''
@@ -50,7 +23,7 @@ valid_inputs = [
 
 ## DONE: Create a function that feeds the test cases into the query function
 # and displays the resulting query.
-def valid_test():
+def test_valid():
 
     usernames = []
     passwords = []
@@ -67,7 +40,42 @@ def valid_test():
         print(f'Test Case {i + 1}: \n Username: {usernames[i]} \n Password: {passwords[i]}')
         print(f'Query: {gen_query(usernames[i], passwords[i])}')
 
-    
+
+'''STEP 2: VULNERABILITIES - TAUTOLOGY'''
+## TODO: Generate test cases (one for each member) that demostrates a tautology attack
+
+## TODO: Create a function that feeds these test cases through the query function and
+## Displays the output.
+
+'''STEP 2: VULNERABILITIES - UNION ATTACK'''
+## TODO: Generate test cases (one for each member) that demostrates a tautology attack
+
+## TODO: Create a function that feeds these test cases through the query function and
+## Displays the output.
+
+'''STEP 2: VULNERABILITIES - ADDITIONAL STATEMENT ATTACK'''
+## TODO: Generate test cases (one for each member) that demostrates a tautology attack
+
+## TODO: Create a function that feeds these test cases through the query function and
+## Displays the output.
+
+'''STEP 2: VULNERABILITIES - COMMENT ATTACK'''
+## TODO: Generate test cases (one for each member) that demostrates a tautology attack
+
+## TODO: Create a function that feeds these test cases through the query function and
+## Displays the output.
+
+
+'''STEP 3: WEAK MITIGATION'''
+
+## TODO: Create a function to provide weak mitigation against ALL four attacks (one function!)
+## Show that all four malicious inputs are mitigated based on the test cases.
+
+'''STEP 4: STRONG MITIGATION'''
+
+## TODO: Create a function that provides strong mitigation against all command
+## injection attacks. Show that all four malicious inputs are mitigated based on
+## test cases.
 
 
 
@@ -75,7 +83,7 @@ def valid_test():
 def start_sql_simulation():
     
     # TEST VALID INPUT
-    valid_test()
+    test_valid()
 
 
     # TEMPORARY BLANK LINE
