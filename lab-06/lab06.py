@@ -1,4 +1,3 @@
-
 ### DEFINE FUNCTIONS and TEST CASE ARRAYS HERE ###
 
 '''STEP 1: QUERY GENERATION '''
@@ -23,7 +22,7 @@ valid_inputs = [
 
 ## DONE: Create a function that feeds the test cases into the query function
 # and displays the resulting query.
-def test_valid():
+def test_valid(query_function):
 
     usernames = []
     passwords = []
@@ -38,53 +37,152 @@ def test_valid():
 
     for i in range(len(usernames)):
         print(f'Test Case {i + 1}: \n Username: {usernames[i]} \n Password: {passwords[i]}')
-        print(f'Query: {gen_query(usernames[i], passwords[i])}')
+        print(f'Query: {query_function(usernames[i], passwords[i])}')
 
 
 '''STEP 2: VULNERABILITIES - TAUTOLOGY'''
 ## TODO: Generate test cases (one for each member) that demostrates a tautology attack
+tautology_test_cases = [
+    "pad_akl_1025/Padakliath1025' OR 'x' = 'x", # Chase's tautology test case
 
-## TODO: Create a function that feeds these test cases through the query function and
+]
+
+
+## DONE: Create a function that feeds these test cases through the query function and
 ## Displays the output.
+def test_tautology(query_function):
+    usernames = []
+    passwords = []
+    
+    # Gather usernames and passwords from valid_input array by splitting each input in the array.
+    for input in tautology_test_cases:
+        temp_input = input.split("/")
+        usernames.append(temp_input[0])
+        passwords.append(temp_input[1])
+
+    print("\nTesting Tautology inputs: \n")
+
+    for i in range(len(usernames)):
+        print(f'Test Case {i + 1}: \n Username: {usernames[i]} \n Password: {passwords[i]}')
+        print(f'Query: {query_function(usernames[i], passwords[i])}')
+
+
 
 '''STEP 2: VULNERABILITIES - UNION ATTACK'''
-## TODO: Generate test cases (one for each member) that demostrates a tautology attack
+## TODO: Generate test cases (one for each member) that demostrates a union attack
+union_test_cases = [
+    "chasemoses/nothing' UNION SELECT authenticate FROM passwordList", # Chase's Union Attack Test Case
 
-## TODO: Create a function that feeds these test cases through the query function and
+]
+
+## DONE: Create a function that feeds these test cases through the query function and
 ## Displays the output.
+def test_union(query_function):
+    usernames = []
+    passwords = []
+    
+    # Gather usernames and passwords from valid_input array by splitting each input in the array.
+    for input in union_test_cases:
+        temp_input = input.split("/")
+        usernames.append(temp_input[0])
+        passwords.append(temp_input[1])
+
+    print("\nTesting Union Attack inputs: \n")
+
+    for i in range(len(usernames)):
+        print(f'Test Case {i + 1}: \n Username: {usernames[i]} \n Password: {passwords[i]}')
+        print(f'Query: {query_function(usernames[i], passwords[i])}')
 
 '''STEP 2: VULNERABILITIES - ADDITIONAL STATEMENT ATTACK'''
-## TODO: Generate test cases (one for each member) that demostrates a tautology attack
+## TODO: Generate test cases (one for each member) that demostrates a additional statement attack
+additional_test_cases = [
+    "chasemoses/nothing'; INSERT INTO passwordList (username, password) VALUES 'Chase', 'pass"
 
-## TODO: Create a function that feeds these test cases through the query function and
+]
+## DONE: Create a function that feeds these test cases through the query function and
 ## Displays the output.
+def test_additional(query_function):
+    usernames = []
+    passwords = []
+    
+    # Gather usernames and passwords from valid_input array by splitting each input in the array.
+    for input in additional_test_cases:
+        temp_input = input.split("/")
+        usernames.append(temp_input[0])
+        passwords.append(temp_input[1])
+
+    print("\nTesting Additional Attack inputs: \n")
+
+    for i in range(len(usernames)):
+        print(f'Test Case {i + 1}: \n Username: {usernames[i]} \n Password: {passwords[i]}')
+        print(f'Query: {query_function(usernames[i], passwords[i])}')
 
 '''STEP 2: VULNERABILITIES - COMMENT ATTACK'''
-## TODO: Generate test cases (one for each member) that demostrates a tautology attack
+## TODO: Generate test cases (one for each member) that demostrates a comment attack
+comment_test_cases = [
+    "chasemoses'; --/nothing" # Chase's comment attack test case
 
-## TODO: Create a function that feeds these test cases through the query function and
+]
+## DONE: Create a function that feeds these test cases through the query function and
 ## Displays the output.
+def test_comment(query_function):
+    usernames = []
+    passwords = []
+    
+    # Gather usernames and passwords from valid_input array by splitting each input in the array.
+    for input in additional_test_cases:
+        temp_input = input.split("/")
+        usernames.append(temp_input[0])
+        passwords.append(temp_input[1])
 
+    print("\nTesting Comment Attack inputs: \n")
+
+    for i in range(len(usernames)):
+        print(f'Test Case {i + 1}: \n Username: {usernames[i]} \n Password: {passwords[i]}')
+        print(f'Query: {query_function(usernames[i], passwords[i])}')
 
 '''STEP 3: WEAK MITIGATION'''
 
 ## TODO: Create a function to provide weak mitigation against ALL four attacks (one function!)
 ## Show that all four malicious inputs are mitigated based on the test cases.
+def gen_query_weak(username, password):
+    return "This will replace the gen_query() function"
 
 '''STEP 4: STRONG MITIGATION'''
 
 ## TODO: Create a function that provides strong mitigation against all command
 ## injection attacks. Show that all four malicious inputs are mitigated based on
 ## test cases.
-
+def gen_query_strong():
+    return "This will replace the gen_query() function"
 
 
 ### THIS FUNCTION IS THE ENTRY POINT FOR ALL OTHER FUNCTIONS ###
 def start_sql_simulation():
     
-    # TEST VALID INPUT
-    test_valid()
+    # This section is to test NO MITIGATION using gen_query()
+    print("Now testing NO MITIGATION\n")
+    test_valid(gen_query)
+    test_tautology(gen_query)
+    test_union(gen_query)
+    test_additional(gen_query)
+    test_comment(gen_query)
 
+    # This section is to test WEAK MITIGATION using gen_query_weak()
+    print("Now testing WEAK MITIGATION\n")
+    test_valid(gen_query_weak)
+    test_tautology(gen_query_weak)
+    test_union(gen_query_weak)
+    test_additional(gen_query_weak)
+    test_comment(gen_query_weak)
+
+    # This section is to test STRONG MITIGATION using gen_query_strong()
+    print("Now testing WEAK MITIGATION\n")
+    test_valid(gen_query_strong)
+    test_tautology(gen_query_strong)
+    test_union(gen_query_strong)
+    test_additional(gen_query_strong)
+    test_comment(gen_query_strong)
 
     # TEMPORARY BLANK LINE
     print('\n')
