@@ -17,7 +17,7 @@ valid_inputs = [
 "pad_akl1025/Padakliath_1025", # Chase's Test Case VALID INPUT.
 # " ", # Vilma's Test Case VALID INPUT
 # " ", # Alma's Test Case VALID INPUT
-# " " # Darcy's Test Case VALID INPUT
+"tulin_22171/Medli_ww2003" # Darcy's Test Case VALID INPUT
 ]
 
 ## DONE: Create a function that feeds the test cases into the query function
