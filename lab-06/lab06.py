@@ -17,7 +17,7 @@ valid_inputs = [
 "pad_akl1025/Padakliath_1025", # Chase's Test Case VALID INPUT.
 # " ", # Vilma's Test Case VALID INPUT
 # " ", # Alma's Test Case VALID INPUT
-"tulin_22171/Medli_ww2003" # Darcy's Test Case VALID INPUT
+"tu_lin22171/Medli_ww2003" # Darcy's Test Case VALID INPUT
 ]
 
 ## DONE: Create a function that feeds the test cases into the query function
@@ -44,6 +44,7 @@ def test_valid(query_function):
 ## TODO: Generate test cases (one for each member) that demostrates a tautology attack
 tautology_test_cases = [
     "pad_akl_1025/Padakliath1025' OR 'x' = 'x", # Chase's tautology test case
+    "tu_lin22171/Medli_ww2003' OR 'w' = 'w'", # Darcy's Test Case VALID INPUT
 
 ]
 
@@ -72,7 +73,7 @@ def test_tautology(query_function):
 ## TODO: Generate test cases (one for each member) that demostrates a union attack
 union_test_cases = [
     "chasemoses/nothing' UNION SELECT authenticate FROM passwordList", # Chase's Union Attack Test Case
-
+    "darcymer/empty UNION SELECT authenticate FROM secretList",  #Darcy's Union Attack Test Case
 ]
 
 ## DONE: Create a function that feeds these test cases through the query function and
@@ -96,7 +97,8 @@ def test_union(query_function):
 '''STEP 2: VULNERABILITIES - ADDITIONAL STATEMENT ATTACK'''
 ## TODO: Generate test cases (one for each member) that demostrates a additional statement attack
 additional_test_cases = [
-    "chasemoses/nothing'; INSERT INTO passwordList (username, password) VALUES 'Chase', 'pass"
+    "chasemoses/nothing'; INSERT INTO passwordList (username, password) VALUES 'Chase', 'pass", # Chase's Vulnerability Attack Test Case
+    "'darcymer/empty'; INSERT INTO secretList (username,password) VALUES 'Darcy, 'toon", # Darcy's Vulnerability Attack Test Case
 
 ]
 ## DONE: Create a function that feeds these test cases through the query function and
@@ -121,7 +123,7 @@ def test_additional(query_function):
 ## TODO: Generate test cases (one for each member) that demostrates a comment attack
 comment_test_cases = [
     "chasemoses'; --/nothing" # Chase's comment attack test case
-
+    "darcymer'; --/null" #Darcy's comment attack test case
 ]
 ## DONE: Create a function that feeds these test cases through the query function and
 ## Displays the output.
