@@ -15,7 +15,7 @@ def gen_query(username, password):
    EXAMPLE: chasemoses/password1234'''
 valid_inputs = [
 "pad_akl1025/Padakliath_1025", # Chase's Test Case VALID INPUT.
-# " ", # Vilma's Test Case VALID INPUT
+"med_eps5425/Zlwhrw_10T25", # Vilma's Test Case VALID INPUT
 # " ", # Alma's Test Case VALID INPUT
 "tu_lin22171/Medli_ww2003" # Darcy's Test Case VALID INPUT
 ]
@@ -45,6 +45,7 @@ def test_valid(query_function):
 tautology_test_cases = [
     "pad_akl_1025/Padakliath1025' OR 'x' = 'x", # Chase's tautology test case
     "tu_lin22171/Medli_ww2003' OR 'w' = 'w'", # Darcy's  tautology test case
+    "med_eps5425/Zlwhrw_10T25' OR 1 = 1", # Vilma's  tautology test case
 
 ]
 
@@ -74,6 +75,8 @@ def test_tautology(query_function):
 union_test_cases = [
     "chasemoses/nothing' UNION SELECT authenticate FROM passwordList", # Chase's Union Attack Test Case
     "darcymer/empty' UNION SELECT authenticate FROM secretList",  #Darcy's Union Attack Test Case
+    "vilmacam/loquesea' UNION SELECT * FROM userPaylocity",  #Vilma's Union Attack Test Case
+    
 ]
 
 ## DONE: Create a function that feeds these test cases through the query function and
@@ -99,7 +102,7 @@ def test_union(query_function):
 additional_test_cases = [
     "chasemoses/nothing'; INSERT INTO passwordList (username, password) VALUES 'Chase', 'pass", # Chase's Vulnerability Attack Test Case
     "'darcymer/empty'; INSERT INTO secretList (username,password) VALUES 'Darcy, 'toon", # Darcy's Vulnerability Attack Test Case
-
+    "'vilmacam/loquesea'; INSERT INTO secretList (username,password) VALUES 'Vilma, '~scrub", # Vilma's Vulnerability Attack Test Case
 ]
 ## DONE: Create a function that feeds these test cases through the query function and
 ## Displays the output.
@@ -124,6 +127,7 @@ def test_additional(query_function):
 comment_test_cases = [
     "chasemoses'; --/nothing" # Chase's comment attack test case
     "darcymer'; --/null" #Darcy's comment attack test case
+    "vilmacamp'; --/admin'#" #Vilma's comment attack test case
 ]
 ## DONE: Create a function that feeds these test cases through the query function and
 ## Displays the output.
