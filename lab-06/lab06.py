@@ -44,7 +44,7 @@ def test_valid(query_function):
 ## TODO: Generate test cases (one for each member) that demostrates a tautology attack
 tautology_test_cases = [
     "pad_akl_1025/Padakliath1025' OR 'x' = 'x", # Chase's tautology test case
-    "tu_lin22171/Medli_ww2003' OR 'w' = 'w'", # Darcy's Test Case VALID INPUT
+    "tu_lin22171/Medli_ww2003' OR 'w' = 'w'", # Darcy's  tautology test case
 
 ]
 
