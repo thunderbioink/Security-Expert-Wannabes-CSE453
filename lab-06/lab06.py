@@ -73,7 +73,7 @@ def test_tautology(query_function):
 ## TODO: Generate test cases (one for each member) that demostrates a union attack
 union_test_cases = [
     "chasemoses/nothing' UNION SELECT authenticate FROM passwordList", # Chase's Union Attack Test Case
-    "darcymer/empty UNION SELECT authenticate FROM secretList",  #Darcy's Union Attack Test Case
+    "darcymer/empty' UNION SELECT authenticate FROM secretList",  #Darcy's Union Attack Test Case
 ]
 
 ## DONE: Create a function that feeds these test cases through the query function and
