@@ -148,6 +148,22 @@ def test_comment(query_function):
 ## TODO: Create a function to provide weak mitigation against ALL four attacks (one function!)
 ## Show that all four malicious inputs are mitigated based on the test cases.
 def gen_query_weak(username, password):
+
+    # Valid Mitigation Code here?
+
+
+    # Tautology Mitigation Code here
+
+
+    # Union Mitigation Code here
+
+
+    # Additional Statement Mitigation Code Here
+
+
+    # Comment Mitigation Code here 
+
+
     return "This is the weak mitigation function"
 
 '''STEP 4: STRONG MITIGATION'''
@@ -156,6 +172,22 @@ def gen_query_weak(username, password):
 ## injection attacks. Show that all four malicious inputs are mitigated based on
 ## test cases.
 def gen_query_strong(username, password):
+    
+    # Valid Mitigation Code here?
+
+
+    # Tautology Mitigation Code here
+
+
+    # Union Mitigation Code here
+
+
+    # Additional Statement Mitigation Code Here
+
+
+    # Comment Mitigation Code here 
+
+    
     return "This is the strong mitigation function"
 
 
