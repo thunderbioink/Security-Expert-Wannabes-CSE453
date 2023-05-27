@@ -45,7 +45,7 @@ def test_valid(query_function):
 tautology_test_cases = [
     "pad_akl_1025/Padakliath1025' OR 'x' = 'x", # Chase's tautology test case
     "tu_lin22171/Medli_ww2003' OR 'w' = 'w'", # Darcy's  tautology test case
-    "med_eps5425/Zlwhrw_10T25' OR 1 = 1", # Vilma's  tautology test case
+    "med_eps5425/Zlwhrw_10T25' OR 1 = 1", # Vilma's  tautology test case 
 
 ]
 
