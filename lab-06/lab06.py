@@ -267,11 +267,7 @@ def start_sql_simulation():
     # TEMPORARY BLANK LINE
     print('\n')
 
-
-
-
-
-
+# 
 
 ### ENTRY POINT OF FILE - MENU ###
 
