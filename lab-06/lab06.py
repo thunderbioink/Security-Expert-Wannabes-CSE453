@@ -7,7 +7,7 @@
 def gen_query(username, password):
     return f"SELECT * FROM Authtable WHERE Username='{username}' AND Password='{password}';"
 
-## TODO: Generate a set of test cases (one for each team member). It 
+## DONE: Generate a set of test cases (one for each team member). It 
 # will represent valid input where the username and the password consist 
 # of letters, numbers, and underscores
 
@@ -41,7 +41,7 @@ def test_valid(query_function):
 
 
 '''STEP 2: VULNERABILITIES - TAUTOLOGY'''
-## TODO: Generate test cases (one for each member) that demostrates a tautology attack
+## DONE: Generate test cases (one for each member) that demostrates a tautology attack
 tautology_test_cases = [
     "pad_akl_1025/Padakliath1025' OR 'x' = 'x", # Chase's tautology test case
     "tu_lin22171/Medli_ww2003' OR 'w' = 'w'", # Darcy's  tautology test case
@@ -69,7 +69,7 @@ def test_tautology(query_function):
         print(f'Query: {query_function(usernames[i], passwords[i])}')
 
 '''STEP 2: VULNERABILITIES - UNION ATTACK'''
-## TODO: Generate test cases (one for each member) that demostrates a union attack
+## DONE: Generate test cases (one for each member) that demostrates a union attack
 union_test_cases = [
     "chasemoses/nothing' UNION SELECT authenticate FROM passwordList", # Chase's Union Attack Test Case
     "darcymer/empty' UNION SELECT authenticate FROM secretList",  #Darcy's Union Attack Test Case
