@@ -168,43 +168,43 @@ def gen_query_weak(username, password):
     return (username, password)
 
 
-    # Tautology Mitigation Code here
-    no_allowed_Tau = ["OR", " OR ", "="]
-    correcto = 1
-    for y in no_allowed_Tau:
-        # INVALID CHARACTER CHECK - USE OF UPPER CASE
-        if(y in username.upper() or y in password.upper()):
-            print(f"\tThe entered {username} is invalid, the use of {y} is NOT allowed.")
-    return (username, password)
+    # # Tautology Mitigation Code here
+    # no_allowed_Tau = ["OR", " OR ", "="]
+    # correcto = 1
+    # for y in no_allowed_Tau:
+    #     # INVALID CHARACTER CHECK - USE OF UPPER CASE
+    #     if(y in username.upper() or y in password.upper()):
+    #         print(f"\tThe entered {username} is invalid, the use of {y} is NOT allowed.")
+    # return (username, password)
 
-    # Union Mitigation Code here
-    no_allowed_Union = ["UNION"]
-    correcto = 1
-    for y in no_allowed_Union:
-        # INVALID CHARACTER CHECK - USE OF UPPER CASE
-        if(y in username.upper() or y in password.upper()):
-            print(f"\tThe entered {username} is invalid, the use of {y} is NOT allowed.")
-    return (username, password)
+    # # Union Mitigation Code here
+    # no_allowed_Union = ["UNION"]
+    # correcto = 1
+    # for y in no_allowed_Union:
+    #     # INVALID CHARACTER CHECK - USE OF UPPER CASE
+    #     if(y in username.upper() or y in password.upper()):
+    #         print(f"\tThe entered {username} is invalid, the use of {y} is NOT allowed.")
+    # return (username, password)
 
-    # Additional Statement Mitigation Code Here
-    no_allowed_Addit = ["~", ";","AND", "--","\"", "/", "$", "@", "="]
-    correcto = 1
-    for y in no_allowed_Addit:
-        # INVALID CHARACTER CHECK - USE OF UPPER CASE
-        if(y in username.upper() or y in password.upper()):
-            print(f"\tThe entered {username} is invalid, the use of {y} is NOT allowed.")
-    return (username, password)
+    # # Additional Statement Mitigation Code Here
+    # no_allowed_Addit = ["~", ";","AND", "--","\"", "/", "$", "@", "="]
+    # correcto = 1
+    # for y in no_allowed_Addit:
+    #     # INVALID CHARACTER CHECK - USE OF UPPER CASE
+    #     if(y in username.upper() or y in password.upper()):
+    #         print(f"\tThe entered {username} is invalid, the use of {y} is NOT allowed.")
+    # return (username, password)
 
-    # Comment Mitigation Code here 
-    no_allowed_comment = ["--","@", "=", "#"]
-    correcto = 1
-    for y in no_allowed_comment:
-        # INVALID CHARACTER CHECK - USE OF UPPER CASE
-        if(y in username.upper() or y in password.upper()):
-            print(f"\tThe entered {username} is invalid, the use of {y} is NOT allowed.")
+    # # Comment Mitigation Code here 
+    # no_allowed_comment = ["--","@", "=", "#"]
+    # correcto = 1
+    # for y in no_allowed_comment:
+    #     # INVALID CHARACTER CHECK - USE OF UPPER CASE
+    #     if(y in username.upper() or y in password.upper()):
+    #         print(f"\tThe entered {username} is invalid, the use of {y} is NOT allowed.")
 
-    return (username, password)
-    #return "This is the weak mitigation function"
+    # return (username, password)
+    # #return "This is the weak mitigation function"
 
 '''STEP 4: STRONG MITIGATION'''
 
@@ -298,8 +298,8 @@ while(True):
     #     case 2: # Option 2 ends the program, so break out of while loop
     #         break
 
-    if option == 1:
+    if int(option) == 1:
         start_sql_simulation()
     
-    elif option == 2:
+    elif int(option) == 2:
         break
