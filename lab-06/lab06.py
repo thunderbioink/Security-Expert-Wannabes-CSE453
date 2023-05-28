@@ -165,7 +165,8 @@ def gen_query_weak(username, password):
     if correcto == 1:
         print("\tThe entered credential PASSED the test!. They are valid!")
  
-    return (username, password)
+    #return (username, password)
+    return f"SELECT * FROM Authtable WHERE Username='{username}' AND Password='{password}';"
 
 
     # # Tautology Mitigation Code here
