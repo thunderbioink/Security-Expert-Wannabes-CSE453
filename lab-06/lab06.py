@@ -10,12 +10,12 @@ def gen_query(username, password):
 
 ## DONE: Generate a set of test cases (one for each team member). It 
 # will represent valid input where the username and the password consist 
-# of letters, numbers, and underscores
+# of letters, numbers, and underscores.
 
 '''PLEASE SEPARATE USERNAME AND PASSWORD WITH A /
    EXAMPLE: chasemoses/password1234'''
 valid_inputs = [
-"pad_akl1025/Padakliath_1025", # Chase's Test Case VALID INPUT.
+"pad_akl1025/Padakliath_1025", # Chase's Test Case VALID INPUT
 "med_eps5425/Zlwhrw_10T25", # Vilma's Test Case VALID INPUT
 "al_caes3708/Jqoevtr_3901", # Alma's Test Case VALID INPUT
 "tu_lin22171/Medli_ww2003" # Darcy's Test Case VALID INPUT
@@ -184,37 +184,40 @@ def gen_query_weak(username, password):
 
 '''STEP 4: STRONG MITIGATION'''
 
-## TODO: Create a function that provides strong mitigation against all command
+## DONE: Create a function that provides strong mitigation against all command
 ## injection attacks. Show that all four malicious inputs are mitigated based on
 ## test cases.
 def gen_query_strong(username, password):
     
-    sql = f"SELECT * FROM Authtable WHERE Username='$0' AND Password='$1';", username, password
-    # Valid Mitigation Code here? 
-    # parameterizie dinputs
+    # sql = f"SELECT * FROM Authtable WHERE Username='$0' AND Password='$1';", username, password
+    # # Valid Mitigation Code here? 
+    # # parameterizie dinputs
 
-
-    # Tautology Mitigation Code here
-    """STRONG MITIGATION - Remove SQL from Workflow; if not possible, FILTER Input to REMOVE UNION Statements"""
-    
-
-
-    # Union Mitigation Code here
-    """STRONG MITIGATION - Remove SQL from Workflow; if not possible, FILTER Input to REMOVE UNION Statements"""
-
-
-    # Additional Statement Mitigation Code Here
-    """STRONG MITIGATION - Remove SQL from Workflow; if not possible, FILTER Input to REMOVE UNION Statements"""
-    
-
-
-    # Comment Mitigation Code here
-    """STRONG MITIGATION - Remove SQL from Workflow; if not possible, FILTER Input to REMOVE UNION Statements"""
+    # while True:
+        
+    #     USERNAME = 0 #insert usernmae call fucntion data 0
+    #     PASSWORD = 0 # insert password fucntion
+        
+    #     login_data = USERNAME + PASSWORD
      
-
+    #     if login_data != x:
+    #         False
+    #     else:
+    #         # return "This is the strong mitigation function"
+    #         return f"SELECT * FROM Authtable WHERE Username='$0' AND Password='$1';", username, password #Expected Output
     
-    return "This is the strong mitigation function"
-
+    
+    # SANITIZE ANY INPUt received by user
+    sanitized_username = " ".join(re.findall("[a-zA-Z0-9_]+", username))
+    sanitized_password = " ".join(re.findall("[a-zA-Z0-9_]+", password))
+    
+    # connection = sqlite3.connect("database.db")
+    # cursor = connection.cursor()
+    
+    query = "SELECT * FROM AuthTable WHERE Username = %s AND Password = %s" % (sanitized_username, sanitized_password)
+    # cursor.execute(query, (sanitized_username,sanitized_password))
+    
+    return query
 
 ### THIS FUNCTION IS THE ENTRY POINT FOR ALL OTHER FUNCTIONS ###
 def start_sql_simulation():
@@ -247,7 +250,6 @@ def start_sql_simulation():
     print('\n')
 
 # 
-
 ### ENTRY POINT OF FILE - MENU ###
 
 while(True):
