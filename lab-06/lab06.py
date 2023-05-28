@@ -47,8 +47,6 @@ tautology_test_cases = [
     "tu_lin22171/Medli_ww2003' OR 'w' = 'w'", # Darcy's  tautology test case
     "med_eps5425/Zlwhrw_10T25' OR 1 = 1", # Vilma's  tautology test case
     "al_caes3708/Jqoevtr_3901'  OR 'a'= 'a'", # Alma's tautology test case
-     
-
 ]
 
 
@@ -70,17 +68,13 @@ def test_tautology(query_function):
         print(f'Test Case {i + 1}: \n Username: {usernames[i]} \n Password: {passwords[i]}')
         print(f'Query: {query_function(usernames[i], passwords[i])}')
 
-
-
 '''STEP 2: VULNERABILITIES - UNION ATTACK'''
 ## TODO: Generate test cases (one for each member) that demostrates a union attack
 union_test_cases = [
     "chasemoses/nothing' UNION SELECT authenticate FROM passwordList", # Chase's Union Attack Test Case
     "darcymer/empty' UNION SELECT authenticate FROM secretList",  #Darcy's Union Attack Test Case
     "vilmacam/loquesea' UNION SELECT * FROM userPaylocity",  #Vilma's Union Attack Test Case
-    "alcaes/password'  UNION SELECT authenticate FROM passwordList", # Alma's Union Attack Test Case
-    
-    
+    "alcaes/password'  UNION SELECT authenticate FROM passwordList", # Alma's Union Attack Test Case    
 ]
 
 ## DONE: Create a function that feeds these test cases through the query function and
@@ -102,7 +96,7 @@ def test_union(query_function):
         print(f'Query: {query_function(usernames[i], passwords[i])}')
 
 '''STEP 2: VULNERABILITIES - ADDITIONAL STATEMENT ATTACK'''
-## TODO: Generate test cases (one for each member) that demostrates a additional statement attack
+## DONE: Generate test cases (one for each member) that demostrates a additional statement attack
 additional_test_cases = [
     "chasemoses/nothing'; INSERT INTO passwordList (username, password) VALUES 'Chase', 'pass", # Chase's Vulnerability Attack Test Case
     "'darcymer/empty'; INSERT INTO secretList (username,password) VALUES 'Darcy, 'toon", # Darcy's Vulnerability Attack Test Case
@@ -219,19 +213,27 @@ def gen_query_weak(username, password):
 ## test cases.
 def gen_query_strong(username, password):
     
-    # Valid Mitigation Code here?
+    # Valid Mitigation Code here? 
+    # parameterizie dinputs
 
 
     # Tautology Mitigation Code here
+    """STRONG MITIGATION - Remove SQL from Workflow; if not possible, FILTER Input to REMOVE UNION Statements"""
+    
 
 
     # Union Mitigation Code here
+    """STRONG MITIGATION - Remove SQL from Workflow; if not possible, FILTER Input to REMOVE UNION Statements"""
 
 
     # Additional Statement Mitigation Code Here
+    """STRONG MITIGATION - Remove SQL from Workflow; if not possible, FILTER Input to REMOVE UNION Statements"""
+    
 
 
-    # Comment Mitigation Code here 
+    # Comment Mitigation Code here
+    """STRONG MITIGATION - Remove SQL from Workflow; if not possible, FILTER Input to REMOVE UNION Statements"""
+     
 
     
     return "This is the strong mitigation function"
