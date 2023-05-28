@@ -139,7 +139,7 @@ def test_comment(query_function):
     passwords = []
     
     # Gather usernames and passwords from valid_input array by splitting each input in the array.
-    for input in additional_test_cases:
+    for input in comment_test_cases:
         temp_input = input.split("/")
         usernames.append(temp_input[0])
         passwords.append(temp_input[1])
