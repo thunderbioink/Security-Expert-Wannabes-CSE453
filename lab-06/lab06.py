@@ -122,7 +122,7 @@ def test_additional(query_function):
         print(f'Query: {query_function(usernames[i], passwords[i])}')
 
 '''STEP 2: VULNERABILITIES - COMMENT ATTACK'''
-## TODO: Generate test cases (one for each member) that demostrates a comment attack
+## DONE: Generate test cases (one for each member) that demostrates a comment attack
 comment_test_cases = [
     "chasemoses'; --/nothing" # Chase's comment attack test case
     "darcymer'; --/null" #Darcy's comment attack test case
