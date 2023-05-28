@@ -255,9 +255,15 @@ while(True):
         continue
     
     # Use swtich case now since user input is a valid option at this point.
-    match int(option):
-        case 1: # Option 1 is to run the team's assembled test cases
-            start_sql_simulation()
+    # match int(option):
+    #     case 1: # Option 1 is to run the team's assembled test cases
+    #         start_sql_simulation()
 
-        case 2: # Option 2 ends the program, so break out of while loop
-            break
+    #     case 2: # Option 2 ends the program, so break out of while loop
+    #         break
+
+    if option == 1:
+        start_sql_simulation()
+    
+    elif option == 2:
+        break
