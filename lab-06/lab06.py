@@ -1,3 +1,4 @@
+import re
 ### DEFINE FUNCTIONS and TEST CASE ARRAYS HERE ###
 
 '''STEP 1: QUERY GENERATION '''
@@ -151,61 +152,34 @@ def test_comment(query_function):
 
 ## TODO: Create a function to provide weak mitigation against ALL four attacks (one function!)
 ## Show that all four malicious inputs are mitigated based on the test cases.
+# def gen_query_weak(username: str, password: str):
+
+#     # Valid Mitigation Code here?
+#     # CHECK FOR SPECIAL KEY WORDS IN THE INPUT
+#     no_allowed = ["OR", "UNION", "~", ";","AND", "--", "#", "\"", "\'","/", "$", "@", "="]
+#     correcto = 1
+#     for y in no_allowed:
+#         # INVALID CHARACTER CHECK - USE OF UPPER CASE
+#         if(y in username.upper() or y in password.upper()):
+#             # print(f"\tThe entered {username} is invalid, the use of {y} is NOT allowed.")
+#             username.replace(y, '')
+#             correcto = 0
+#     if correcto == 1:
+#         print("\tThe entered credential PASSED the test!. They are valid!")
+
+#         print()
+ 
+#     #return (username, password)
+#     return (username, password)
+
 def gen_query_weak(username, password):
 
-    # Valid Mitigation Code here?
-    # CHECK FOR SPECIAL KEY WORDS IN THE INPUT
-    no_allowed = ["OR", "UNION", "~", ";","AND", "--", "#", "\"", "/", "$", "@", "="]
-    correcto = 1
-    for y in no_allowed:
-        # INVALID CHARACTER CHECK - USE OF UPPER CASE
-        if(y in username.upper() or y in password.upper()):
-            print(f"\tThe entered {username} is invalid, the use of {y} is NOT allowed.")
-            correcto = 0
-    if correcto == 1:
-        print("\tThe entered credential PASSED the test!. They are valid!")
- 
-    #return (username, password)
-    return f"SELECT * FROM Authtable WHERE Username='{username}' AND Password='{password}';"
+    # Clean up username and password if there is extra malicious symbols
+    sanitized_username = " ".join(re.findall("[a-zA-Z0-9_]+", username))
+    sanitized_password = " ".join(re.findall("[a-zA-Z0-9_]+", password))
 
+    return f"SELECT * FROM Authtable WHERE Username='{sanitized_username}' AND Password='{sanitized_password}';"
 
-    # # Tautology Mitigation Code here
-    # no_allowed_Tau = ["OR", " OR ", "="]
-    # correcto = 1
-    # for y in no_allowed_Tau:
-    #     # INVALID CHARACTER CHECK - USE OF UPPER CASE
-    #     if(y in username.upper() or y in password.upper()):
-    #         print(f"\tThe entered {username} is invalid, the use of {y} is NOT allowed.")
-    # return (username, password)
-
-    # # Union Mitigation Code here
-    # no_allowed_Union = ["UNION"]
-    # correcto = 1
-    # for y in no_allowed_Union:
-    #     # INVALID CHARACTER CHECK - USE OF UPPER CASE
-    #     if(y in username.upper() or y in password.upper()):
-    #         print(f"\tThe entered {username} is invalid, the use of {y} is NOT allowed.")
-    # return (username, password)
-
-    # # Additional Statement Mitigation Code Here
-    # no_allowed_Addit = ["~", ";","AND", "--","\"", "/", "$", "@", "="]
-    # correcto = 1
-    # for y in no_allowed_Addit:
-    #     # INVALID CHARACTER CHECK - USE OF UPPER CASE
-    #     if(y in username.upper() or y in password.upper()):
-    #         print(f"\tThe entered {username} is invalid, the use of {y} is NOT allowed.")
-    # return (username, password)
-
-    # # Comment Mitigation Code here 
-    # no_allowed_comment = ["--","@", "=", "#"]
-    # correcto = 1
-    # for y in no_allowed_comment:
-    #     # INVALID CHARACTER CHECK - USE OF UPPER CASE
-    #     if(y in username.upper() or y in password.upper()):
-    #         print(f"\tThe entered {username} is invalid, the use of {y} is NOT allowed.")
-
-    # return (username, password)
-    # #return "This is the weak mitigation function"
 
 '''STEP 4: STRONG MITIGATION'''
 
@@ -214,20 +188,7 @@ def gen_query_weak(username, password):
 ## test cases.
 def gen_query_strong(username, password):
     
-    # Valid Mitigation Code here?
-
-
-    # Tautology Mitigation Code here
-
-
-    # Union Mitigation Code here
-
-
-    # Additional Statement Mitigation Code Here
-
-
-    # Comment Mitigation Code here 
-
+    sql = f"SELECT * FROM Authtable WHERE Username='$0' AND Password='$1';", username, password
     
     return "This is the strong mitigation function"
 
