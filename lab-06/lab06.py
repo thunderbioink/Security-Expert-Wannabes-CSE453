@@ -154,21 +154,57 @@ def test_comment(query_function):
 def gen_query_weak(username, password):
 
     # Valid Mitigation Code here?
+    # CHECK FOR SPECIAL KEY WORDS IN THE INPUT
+    no_allowed = ["OR", "UNION", "~", ";","AND", "--", "#", "\"", "/", "$", "@", "="]
+    correcto = 1
+    for y in no_allowed:
+        # INVALID CHARACTER CHECK - USE OF UPPER CASE
+        if(y in username.upper() or y in password.upper()):
+            print(f"\tThe entered {username} is invalid, the use of {y} is NOT allowed.")
+            correcto = 0
+    if correcto == 1:
+        print("\tThe entered credential PASSED the test!. They are valid!")
+ 
+    return (username, password)
 
 
     # Tautology Mitigation Code here
-
+    no_allowed_Tau = ["OR", " OR ", "="]
+    correcto = 1
+    for y in no_allowed_Tau:
+        # INVALID CHARACTER CHECK - USE OF UPPER CASE
+        if(y in username.upper() or y in password.upper()):
+            print(f"\tThe entered {username} is invalid, the use of {y} is NOT allowed.")
+    return (username, password)
 
     # Union Mitigation Code here
-
+    no_allowed_Union = ["UNION"]
+    correcto = 1
+    for y in no_allowed_Union:
+        # INVALID CHARACTER CHECK - USE OF UPPER CASE
+        if(y in username.upper() or y in password.upper()):
+            print(f"\tThe entered {username} is invalid, the use of {y} is NOT allowed.")
+    return (username, password)
 
     # Additional Statement Mitigation Code Here
-
+    no_allowed_Addit = ["~", ";","AND", "--","\"", "/", "$", "@", "="]
+    correcto = 1
+    for y in no_allowed_Addit:
+        # INVALID CHARACTER CHECK - USE OF UPPER CASE
+        if(y in username.upper() or y in password.upper()):
+            print(f"\tThe entered {username} is invalid, the use of {y} is NOT allowed.")
+    return (username, password)
 
     # Comment Mitigation Code here 
+    no_allowed_comment = ["--","@", "=", "#"]
+    correcto = 1
+    for y in no_allowed_comment:
+        # INVALID CHARACTER CHECK - USE OF UPPER CASE
+        if(y in username.upper() or y in password.upper()):
+            print(f"\tThe entered {username} is invalid, the use of {y} is NOT allowed.")
 
-
-    return "This is the weak mitigation function"
+    return (username, password)
+    #return "This is the weak mitigation function"
 
 '''STEP 4: STRONG MITIGATION'''
 
