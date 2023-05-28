@@ -181,7 +181,6 @@ def gen_query_weak(username, password):
 
     return f"SELECT * FROM Authtable WHERE Username='{sanitized_username}' AND Password='{sanitized_password}';"
 
-
 '''STEP 4: STRONG MITIGATION'''
 
 ## DONE: Create a function that provides strong mitigation against all command
