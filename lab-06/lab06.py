@@ -38,7 +38,7 @@ def test_valid(query_function):
 
     for i in range(len(usernames)):
         print(f'Test Case {i + 1}: \n Username: {usernames[i]} \n Password: {passwords[i]}')
-        print(f'Query: {query_function(usernames[i], passwords[i])}')
+        print(f'Output: {query_function(usernames[i], passwords[i])}')
 
 
 '''STEP 2: VULNERABILITIES - TAUTOLOGY'''
@@ -67,7 +67,7 @@ def test_tautology(query_function):
 
     for i in range(len(usernames)):
         print(f'Test Case {i + 1}: \n Username: {usernames[i]} \n Password: {passwords[i]}')
-        print(f'Query: {query_function(usernames[i], passwords[i])}')
+        print(f'Output: {query_function(usernames[i], passwords[i])}')
 
 '''STEP 2: VULNERABILITIES - UNION ATTACK'''
 ## DONE: Generate test cases (one for each member) that demostrates a union attack
@@ -94,7 +94,7 @@ def test_union(query_function):
 
     for i in range(len(usernames)):
         print(f'Test Case {i + 1}: \n Username: {usernames[i]} \n Password: {passwords[i]}')
-        print(f'Query: {query_function(usernames[i], passwords[i])}')
+        print(f'Output: {query_function(usernames[i], passwords[i])}')
 
 '''STEP 2: VULNERABILITIES - ADDITIONAL STATEMENT ATTACK'''
 ## DONE: Generate test cases (one for each member) that demostrates a additional statement attack
@@ -120,7 +120,7 @@ def test_additional(query_function):
 
     for i in range(len(usernames)):
         print(f'Test Case {i + 1}: \n Username: {usernames[i]} \n Password: {passwords[i]}')
-        print(f'Query: {query_function(usernames[i], passwords[i])}')
+        print(f'Output: {query_function(usernames[i], passwords[i])}')
 
 '''STEP 2: VULNERABILITIES - COMMENT ATTACK'''
 ## DONE: Generate test cases (one for each member) that demostrates a comment attack
@@ -147,7 +147,7 @@ def test_comment(query_function):
 
     for i in range(len(usernames)):
         print(f'Test Case {i + 1}: \n Username: {usernames[i]} \n Password: {passwords[i]}')
-        print(f'Query: {query_function(usernames[i], passwords[i])}')
+        print(f'Output: {query_function(usernames[i], passwords[i])}')
 
 '''STEP 3: WEAK MITIGATION'''
 
