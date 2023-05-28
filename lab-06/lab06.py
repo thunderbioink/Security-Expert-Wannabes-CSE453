@@ -17,7 +17,7 @@ def gen_query(username, password):
 valid_inputs = [
 "pad_akl1025/Padakliath_1025", # Chase's Test Case VALID INPUT.
 "med_eps5425/Zlwhrw_10T25", # Vilma's Test Case VALID INPUT
-# " ", # Alma's Test Case VALID INPUT
+"al_caes3708/Jqoevtr_3901", # Alma's Test Case VALID INPUT
 "tu_lin22171/Medli_ww2003" # Darcy's Test Case VALID INPUT
 ]
 
@@ -46,7 +46,9 @@ def test_valid(query_function):
 tautology_test_cases = [
     "pad_akl_1025/Padakliath1025' OR 'x' = 'x", # Chase's tautology test case
     "tu_lin22171/Medli_ww2003' OR 'w' = 'w'", # Darcy's  tautology test case
-    "med_eps5425/Zlwhrw_10T25' OR 1 = 1", # Vilma's  tautology test case 
+    "med_eps5425/Zlwhrw_10T25' OR 1 = 1", # Vilma's  tautology test case
+    "al_caes3708/Jqoevtr_3901'  OR 'a'= 'a'", # Alma's tautology test case
+     
 
 ]
 
@@ -77,6 +79,8 @@ union_test_cases = [
     "chasemoses/nothing' UNION SELECT authenticate FROM passwordList", # Chase's Union Attack Test Case
     "darcymer/empty' UNION SELECT authenticate FROM secretList",  #Darcy's Union Attack Test Case
     "vilmacam/loquesea' UNION SELECT * FROM userPaylocity",  #Vilma's Union Attack Test Case
+    "alcaes/password'  UNION SELECT authenticate FROM passwordList", # Alma's Union Attack Test Case
+    
     
 ]
 
@@ -104,6 +108,7 @@ additional_test_cases = [
     "chasemoses/nothing'; INSERT INTO passwordList (username, password) VALUES 'Chase', 'pass", # Chase's Vulnerability Attack Test Case
     "'darcymer/empty'; INSERT INTO secretList (username,password) VALUES 'Darcy, 'toon", # Darcy's Vulnerability Attack Test Case
     "'vilmacam/loquesea'; INSERT INTO secretList (username,password) VALUES 'Vilma, '~scrub", # Vilma's Vulnerability Attack Test Case
+    "'alcaes/nothing'; INSERT INTO passwordList (username,password) VALUES 'Alma, '1234", # Alma's Vulnerability Attack Test Case
 ]
 ## DONE: Create a function that feeds these test cases through the query function and
 ## Displays the output.
@@ -223,11 +228,7 @@ def start_sql_simulation():
     # TEMPORARY BLANK LINE
     print('\n')
 
-
-
-
-
-
+# 
 
 ### ENTRY POINT OF FILE - MENU ###
 
