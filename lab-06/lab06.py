@@ -125,11 +125,10 @@ def test_additional(query_function):
 '''STEP 2: VULNERABILITIES - COMMENT ATTACK'''
 ## DONE: Generate test cases (one for each member) that demostrates a comment attack
 comment_test_cases = [
-    "chasemoses'; --/nothing" # Chase's comment attack test case
-    "darcymer'; --/null" #Darcy's comment attack test case
-    "vilmacamp'; --/admin'#" #Vilma's comment attack test case
-    "alcaes'; --/nothing'#" #Alma's comment attack test case
-    
+    "chasemoses'; --/nothing", # Chase's comment attack test case
+    "darcymer'; --/null", #Darcy's comment attack test case
+    "vilmacamp'; --/admin'#", #Vilma's comment attack test case
+    "alcaes'; --/nothing'#", #Alma's comment attack test case
 ]
 
 ## DONE: Create a function that feeds these test cases through the query function and
