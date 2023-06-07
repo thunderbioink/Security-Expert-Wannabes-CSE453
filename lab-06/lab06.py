@@ -125,11 +125,10 @@ def test_additional(query_function):
 '''STEP 2: VULNERABILITIES - COMMENT ATTACK'''
 ## DONE: Generate test cases (one for each member) that demostrates a comment attack
 comment_test_cases = [
-    "chasemoses'; --/nothing" # Chase's comment attack test case
-    "darcymer'; --/null" #Darcy's comment attack test case
-    "vilmacamp'; --/admin'#" #Vilma's comment attack test case
-    "alcaes'; --/nothing'#" #Alma's comment attack test case
-    
+    "chasemoses'; --/nothing", # Chase's comment attack test case
+    "darcymer'; --/null", #Darcy's comment attack test case
+    "vilmacamp'; --/admin'#", #Vilma's comment attack test case
+    "alcaes'; --/nothing'#", #Alma's comment attack test case
 ]
 ## DONE: Create a function that feeds these test cases through the query function and
 ## Displays the output.
@@ -138,7 +137,7 @@ def test_comment(query_function):
     passwords = []
     
     # Gather usernames and passwords from valid_input array by splitting each input in the array.
-    for input in additional_test_cases:
+    for input in comment_test_cases:
         temp_input = input.split("/")
         usernames.append(temp_input[0])
         passwords.append(temp_input[1])
