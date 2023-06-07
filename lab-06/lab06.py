@@ -131,7 +131,6 @@ comment_test_cases = [
     "alcaes'; --/nothing'#" #Alma's comment attack test case
     
 ]
-
 ## DONE: Create a function that feeds these test cases through the query function and
 ## Displays the output.
 def test_comment(query_function):
@@ -152,6 +151,28 @@ def test_comment(query_function):
 
 '''STEP 3: WEAK MITIGATION'''
 
+## DONE: Create a function to provide weak mitigation against ALL four attacks (one function!)
+## Show that all four malicious inputs are mitigated based on the test cases.
+# def gen_query_weak(username: str, password: str):
+
+#     # Valid Mitigation Code here?
+#     # CHECK FOR SPECIAL KEY WORDS IN THE INPUT
+#     no_allowed = ["OR", "UNION", "~", ";","AND", "--", "#", "\"", "\'","/", "$", "@", "="]
+#     correcto = 1
+#     for y in no_allowed:
+#         # INVALID CHARACTER CHECK - USE OF UPPER CASE
+#         if(y in username.upper() or y in password.upper()):
+#             # print(f"\tThe entered {username} is invalid, the use of {y} is NOT allowed.")
+#             username.replace(y, '')
+#             correcto = 0
+#     if correcto == 1:
+#         print("\tThe entered credential PASSED the test!. They are valid!")
+
+#         print()
+ 
+#     #return (username, password)
+#     return (username, password)
+
 def gen_query_weak(username, password):
 
     # Clean up username and password if there is extra malicious symbols
@@ -167,21 +188,34 @@ def gen_query_weak(username, password):
 ## test cases.
 def gen_query_strong(username, password):
     
-    # SANITIZE ALL INPUT RECEIVED FROM THE USER
+    # sql = f"SELECT * FROM Authtable WHERE Username='$0' AND Password='$1';", username, password
+    # # Valid Mitigation Code here? 
+    # # parameterizie dinputs
+
+    # while True:
+        
+    #     USERNAME = 0 #insert usernmae call fucntion data 0
+    #     PASSWORD = 0 # insert password fucntion
+        
+    #     login_data = USERNAME + PASSWORD
+     
+    #     if login_data != x:
+    #         False
+    #     else:
+    #         # return "This is the strong mitigation function"
+    #         return f"SELECT * FROM Authtable WHERE Username='$0' AND Password='$1';", username, password #Expected Output
+    
+    
+    # SANITIZE ANY INPUt received by user
     sanitized_username = " ".join(re.findall("[a-zA-Z0-9_]+", username))
     sanitized_password = " ".join(re.findall("[a-zA-Z0-9_]+", password))
     
-    # CREATE A CONNECTION TO DATABASE
     # connection = sqlite3.connect("database.db")
     # cursor = connection.cursor()
     
-    # SPECIFY QUERY. THE %s would be replaced with ? in an actual database use setting
     query = "SELECT * FROM AuthTable WHERE Username = %s AND Password = %s" % (sanitized_username, sanitized_password)
-
-    # Execute the command, passing in the query, and the sanitized inputs. THIS IS PARAMETERIZED INPUT
     # cursor.execute(query, (sanitized_username,sanitized_password))
-
-    # Because we aren't using a database.. To show the output, just return the query.
+    
     return query
 
 ### THIS FUNCTION IS THE ENTRY POINT FOR ALL OTHER FUNCTIONS ###
