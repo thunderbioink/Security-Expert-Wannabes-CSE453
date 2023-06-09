@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "BW/Wnjok+Why/Mq+DP88BhKl0lQWycfEJmfQMgSlN3QAdXHOXZ6PmBQF+zB6ixg2qBnOFvhVz+cBRfLCN2tE7g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Sterling Moses\\source\\repos\\Security-Expert-Wannabes-CSE453\\lab-08samples\\ChaseLabCSharp\\ChaseLabCSharp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Sterling Moses\\.nuget\\packages\\fluentvalidation\\11.5.2\\fluentvalidation.11.5.2.nupkg.sha512"
+  ],
+  "logs": []
+}

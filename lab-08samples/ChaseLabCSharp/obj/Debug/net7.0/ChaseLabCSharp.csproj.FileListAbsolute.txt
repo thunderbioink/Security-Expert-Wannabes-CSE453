@@ -1,0 +1,17 @@
+C:\Users\Sterling Moses\source\repos\Security-Expert-Wannabes-CSE453\lab-08samples\ChaseLabCSharp\obj\Debug\net7.0\ChaseLabCSharp.csproj.AssemblyReference.cache
+C:\Users\Sterling Moses\source\repos\Security-Expert-Wannabes-CSE453\lab-08samples\ChaseLabCSharp\obj\Debug\net7.0\ChaseLabCSharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sterling Moses\source\repos\Security-Expert-Wannabes-CSE453\lab-08samples\ChaseLabCSharp\obj\Debug\net7.0\ChaseLabCSharp.AssemblyInfoInputs.cache
+C:\Users\Sterling Moses\source\repos\Security-Expert-Wannabes-CSE453\lab-08samples\ChaseLabCSharp\obj\Debug\net7.0\ChaseLabCSharp.AssemblyInfo.cs
+C:\Users\Sterling Moses\source\repos\Security-Expert-Wannabes-CSE453\lab-08samples\ChaseLabCSharp\obj\Debug\net7.0\ChaseLabCSharp.csproj.CoreCompileInputs.cache
+C:\Users\Sterling Moses\source\repos\Security-Expert-Wannabes-CSE453\lab-08samples\ChaseLabCSharp\bin\Debug\net7.0\ChaseLabCSharp.exe
+C:\Users\Sterling Moses\source\repos\Security-Expert-Wannabes-CSE453\lab-08samples\ChaseLabCSharp\bin\Debug\net7.0\ChaseLabCSharp.deps.json
+C:\Users\Sterling Moses\source\repos\Security-Expert-Wannabes-CSE453\lab-08samples\ChaseLabCSharp\bin\Debug\net7.0\ChaseLabCSharp.runtimeconfig.json
+C:\Users\Sterling Moses\source\repos\Security-Expert-Wannabes-CSE453\lab-08samples\ChaseLabCSharp\bin\Debug\net7.0\ChaseLabCSharp.dll
+C:\Users\Sterling Moses\source\repos\Security-Expert-Wannabes-CSE453\lab-08samples\ChaseLabCSharp\bin\Debug\net7.0\ChaseLabCSharp.pdb
+C:\Users\Sterling Moses\source\repos\Security-Expert-Wannabes-CSE453\lab-08samples\ChaseLabCSharp\bin\Debug\net7.0\FluentValidation.dll
+C:\Users\Sterling Moses\source\repos\Security-Expert-Wannabes-CSE453\lab-08samples\ChaseLabCSharp\obj\Debug\net7.0\ChaseLabCSharp.csproj.CopyComplete
+C:\Users\Sterling Moses\source\repos\Security-Expert-Wannabes-CSE453\lab-08samples\ChaseLabCSharp\obj\Debug\net7.0\ChaseLabCSharp.dll
+C:\Users\Sterling Moses\source\repos\Security-Expert-Wannabes-CSE453\lab-08samples\ChaseLabCSharp\obj\Debug\net7.0\refint\ChaseLabCSharp.dll
+C:\Users\Sterling Moses\source\repos\Security-Expert-Wannabes-CSE453\lab-08samples\ChaseLabCSharp\obj\Debug\net7.0\ChaseLabCSharp.pdb
+C:\Users\Sterling Moses\source\repos\Security-Expert-Wannabes-CSE453\lab-08samples\ChaseLabCSharp\obj\Debug\net7.0\ChaseLabCSharp.genruntimeconfig.cache
+C:\Users\Sterling Moses\source\repos\Security-Expert-Wannabes-CSE453\lab-08samples\ChaseLabCSharp\obj\Debug\net7.0\ref\ChaseLabCSharp.dll
