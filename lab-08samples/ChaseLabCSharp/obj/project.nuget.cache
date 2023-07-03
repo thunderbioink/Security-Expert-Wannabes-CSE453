@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BW/Wnjok+Why/Mq+DP88BhKl0lQWycfEJmfQMgSlN3QAdXHOXZ6PmBQF+zB6ixg2qBnOFvhVz+cBRfLCN2tE7g==",
+  "dgSpecHash": "XDiGzMq8YWw6RNOHzAlmt/X4uNuF8iUZWgMu6L4U8aaekWfCrPBOXdESEnFLrK7Umb4vhm03uUO0LgRN80CzGg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sterling Moses\\source\\repos\\Security-Expert-Wannabes-CSE453\\lab-08samples\\ChaseLabCSharp\\ChaseLabCSharp.csproj",
+  "projectFilePath": "c:\\Users\\Sterling Moses\\source\\repos\\Security-Expert-Wannabes-CSE453\\lab-08samples\\ChaseLabCSharp\\ChaseLabCSharp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sterling Moses\\.nuget\\packages\\fluentvalidation\\11.5.2\\fluentvalidation.11.5.2.nupkg.sha512"
   ],
