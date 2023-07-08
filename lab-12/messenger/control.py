@@ -8,3 +8,35 @@
 ########################################################################
 
 # you may need to put something here...
+
+from enum import Enum
+
+class Control(Enum):
+
+    clearance_levels = {
+
+        "Public" : 0,
+        "Confidential" : 1,
+        "Privileged" : 2,
+        "Secret" : 3
+    }
+
+    def authenticate(username)->bool:
+        pass
+
+
+    def securityConditionWrite():
+        pass
+
+    def securityConditionRead():
+        pass
+
+    
+    def secret():
+        pass
+    def privileged():
+        pass
+    def confidential():
+        pass
+    def public():
+        pass

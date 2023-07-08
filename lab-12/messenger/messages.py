@@ -7,6 +7,7 @@
 #    This class stores the notion of a collection of messages
 ########################################################################
 
+# ADD CONTROL STUFFS IN THIS FILE!!!!!!
 import control, message
 
 ##################################################
@@ -76,7 +77,7 @@ class Messages:
         try:
             with open(filename, "r") as f:
                 for line in f:
-                    text_control, author, date, text = line.split('|')
+                    text_control, author, date, text = line.split('|') # Since we are getting text_control
                     self.add(text.rstrip('\r\n'), author, date)
 
         except FileNotFoundError:
