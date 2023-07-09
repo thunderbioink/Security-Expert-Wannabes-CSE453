@@ -20,18 +20,13 @@ class Control(Enum):
         "Privileged" : 2,
         "Secret" : 3
     }
-
+    
     def authenticate(username)->bool:
         pass
-
-
     def securityConditionWrite():
         pass
-
     def securityConditionRead():
         pass
-
-    
     def secret():
         pass
     def privileged():
