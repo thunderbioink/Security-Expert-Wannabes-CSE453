@@ -26,6 +26,7 @@ userlist = [
    [ "SeamanSly",      "password" ]
 ]
 
+
 ###############################################################
 # USERS
 # All the users currently in the system
@@ -40,14 +41,31 @@ ID_INVALID = -1
 ######################################################
 class Interact:
 
+    
     ##################################################
     # INTERACT CONSTRUCTOR
     # Authenticate the user and get him/her all set up
     ##################################################
     def __init__(self, username, password, messages):
+
+        access_levels = {
+            "AdmiralAbe" : control.Control.SECRET,
+            "CaptainCharlie" : control.Control.PRIVILEGED,
+            "SeamanSam" : control.Control.CONFIDENTIAL,
+            "SeamanSue" : control.Control.CONFIDENTIAL,
+            "SeamanSly" : control.Control.CONFIDENTIAL
+        }
+
         self._authenticate(username, password)
         self._username = username
         self._p_messages = messages
+        
+        # TODO: ADD IF STATEMENT. IF USERNAME IS IN ACCESS LEVEL, then
+        # ASSIGN FROM ACCESS LEVEL. IF NOT IN ACCESS LEVEL, ASSIGN
+        # PUBLIC CONTROL
+        self.user_control_level = access_levels.get(username)
+
+
 
     ##################################################
     # INTERACT :: SHOW
@@ -64,8 +82,10 @@ class Interact:
     # Display the set of messages
     ################################################## 
     def display(self):
+
+        # if (security_condition_read(self.user_control_level,  self._p_messages))
         print("Messages:")
-        self._p_messages.display()
+        self._p_messages.display(self.user_control_level.value)
         print()
 
     ##################################################
@@ -75,7 +95,8 @@ class Interact:
     def add(self):
         self._p_messages.add(self._prompt_for_line("message"),
                              self._username,
-                             self._prompt_for_line("date"))
+                             self._prompt_for_line("date"),
+                             self._prompt_for_line("security level"))
 
     ##################################################
     # INTERACT :: UPDATE

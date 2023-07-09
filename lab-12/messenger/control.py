@@ -12,6 +12,7 @@
 from enum import Enum
 
 class Control(Enum):
+    <<<<<<< HEAD
 
     clearance_levels = {
 
@@ -35,3 +36,9 @@ class Control(Enum):
         pass
     def public():
         pass
+=======
+    PUBLIC = 0
+    CONFIDENTIAL = 1
+    PRIVILEGED = 2
+    SECRET = 3
+>>>>>>> 9329eba12131d4f423938526e21fe1c394e89f63
