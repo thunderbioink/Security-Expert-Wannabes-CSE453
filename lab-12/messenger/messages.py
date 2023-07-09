@@ -15,6 +15,19 @@ import control, message
 # The collection of high-tech messages
 ##################################################
 class Messages:
+    
+    message_access_level = {
+        "Public" : control.Control.PUBLIC,
+        "Confidential" : control.Control.CONFIDENTIAL,
+        "Privileged" : control.Control.PRIVILEGED,
+        "Secret" : control.Control.SECRET
+    }
+
+    def security_condition_write(self, subject_control:int, asset_control:int)->bool:
+        return subject_control <= asset_control
+
+    def security_condition_read(self, subject_control:int, asset_control:int)->bool:
+        return subject_control >= asset_control
 
     ##################################################
     # MESSAGES CONSTRUCTOR
@@ -28,12 +41,16 @@ class Messages:
     # MESSAGES :: DISPLAY
     # Display the list of messages
     ################################################## 
-    def display(self):
+    def display(self, user_control_level):
         for m in self._messages:
-            m.display_properties()
+            if self.security_condition_read(user_control_level, m.text_control):
+                m.display_properties()
+            else:
+                print("YOU DON'T HAVE CLEARANCE!")
+    
 
     ##################################################
-    # MESSAGES :: SHOW
+    # MESSAGES :: SHOW   # TODO: READ OPERATION
     # Show a single message
     ################################################## 
     def show(self, id):
@@ -44,7 +61,7 @@ class Messages:
         return False
 
     ##################################################
-    # MESSAGES :: UPDATE
+    # MESSAGES :: UPDATE   # TODO: WRITE OPERATION
     # Update a single message
     ################################################## 
     def update(self, id, text):
@@ -53,7 +70,7 @@ class Messages:
                 m.update_text(text)
 
     ##################################################
-    # MESSAGES :: REMOVE
+    # MESSAGES :: REMOVE   # WRITE
     # Remove a single message
     ################################################## 
     def remove(self, id):
@@ -65,8 +82,9 @@ class Messages:
     # MESSAGES :: ADD
     # Add a new message
     ################################################## 
-    def add(self, text, author, date):
-        m = message.Message(text, author, date)
+    def add(self, text, author, date, text_control):
+        text_control = self.message_access_level.get(text_control)
+        m = message.Message(text, author, date, text_control.value)
         self._messages.append(m)
 
     ##################################################
@@ -78,7 +96,7 @@ class Messages:
             with open(filename, "r") as f:
                 for line in f:
                     text_control, author, date, text = line.split('|') # Since we are getting text_control
-                    self.add(text.rstrip('\r\n'), author, date)
+                    self.add(text.rstrip('\r\n'), author, date, text_control)
 
         except FileNotFoundError:
             print(f"ERROR! Unable to open file \"{filename}\"")

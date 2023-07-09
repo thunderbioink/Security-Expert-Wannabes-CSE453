@@ -17,6 +17,7 @@ class Message:
 
     # Static variable for the next id
     _id_next = 100
+    
 
     ##################################################
     # MESSAGE DEFAULT CONSTRUCTOR
@@ -27,6 +28,7 @@ class Message:
         self._text = "Empty"
         self._author = ""
         self._date = ""
+        self.text_control = 0
         self._id = Message._id_next
         Message._id_next += 1
 
@@ -34,11 +36,13 @@ class Message:
     # MESSAGE NON-DEFAULT CONSTRUCTOR
     # Create a message and fill it
     ##################################################   
-    def __init__(self, text, author, date):
+    def __init__(self, text, author, date, text_control):
         self._text = text
         self._author = author
         self._date = date
         self._id = Message._id_next
+
+        self.text_control = text_control
         Message._id_next += 1
         self._empty = False
 
