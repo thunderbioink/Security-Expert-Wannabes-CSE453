@@ -60,6 +60,8 @@ class Interact:
         self._username = username
         self._p_messages = messages
         
+        
+        
         if username in access_levels:
             
             # Because the username is indeed in the access level,
@@ -97,7 +99,8 @@ class Interact:
         self._p_messages.add(self._prompt_for_line("message"),
                              self._username,
                              self._prompt_for_line("date"),
-                             self._prompt_for_line("security level"))
+                             self._prompt_for_line("security level"),
+                             self.user_control_level.value)
 
     ##################################################
     # INTERACT :: UPDATE
@@ -105,10 +108,10 @@ class Interact:
     ################################################## 
     def update(self):
         id_ = self._prompt_for_id("update")
-        if not self._p_messages.show(id_):
+        if not self._p_messages.show(id_, self.user_control_level.value):
             print(f"ERROR! Message ID \'{id_}\' does not exist\n")
             return
-        self._p_messages.update(id_, self._prompt_for_line("message"))
+        self._p_messages.update(id_, self._prompt_for_line("message"), self.user_control_level.value)
         print()
             
     ##################################################
@@ -116,7 +119,7 @@ class Interact:
     # Remove one message from the list
     ################################################## 
     def remove(self):
-        self._p_messages.remove(self._prompt_for_id("delete"))
+        self._p_messages.remove(self._prompt_for_id("delete"), self.user_control_level.value)
 
     ##################################################
     # INTERACT :: PROMPT FOR LINE

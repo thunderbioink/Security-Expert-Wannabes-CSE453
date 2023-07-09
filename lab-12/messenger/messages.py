@@ -23,6 +23,7 @@ class Messages:
         "Secret" : control.Control.SECRET
     }
 
+
     def security_condition_write(self, subject_control:int, asset_control:int)->bool:
         return subject_control <= asset_control
 
@@ -36,6 +37,7 @@ class Messages:
     def __init__(self, filename):
         self._messages = []
         self._read_messages(filename)
+        
 
     ##################################################
     # MESSAGES :: DISPLAY --- Reference for read
@@ -50,7 +52,7 @@ class Messages:
     
 
     ##################################################
-    # MESSAGES :: SHOW   # TODO: READ OPERATION --check in a bit
+    # MESSAGES :: SHOW   # TODO: READ OPERATION -- debug
     # Show a single message
     ################################################## 
     def show(self, id, user_control_level):
@@ -63,47 +65,72 @@ class Messages:
             if m.get_id() == id:
                 if self.security_condition_read(user_control_level, m.text_control):
                     m.display_text()
-                # return True
-        # return False
-            else:
-                print("YOU DON'T HAVE CLEARANCE!")
+                    return True
+                else:
+                    print("YOU DON'T HAVE CLEARANCE!")
+                return False
+            
                 
 
     ##################################################
-    # MESSAGES :: UPDATE   # TODO: WRITE OPERATION --check in a bit
+    # MESSAGES :: UPDATE   # TODO: WRITE OPERATION -- debug
     # Update a single message
+    
+    
+     ################################################## 
+    # def update(self, id, text):
+    #     for m in self._messages:
+    #         if m.get_id() == id:
+    #           if self.security_condition_write(user_control_level, m.text_control):
+    #             m.update_text(text)
     ################################################## 
-    def update(self, id, text, text_control):
+    def update(self, id, text, user_control_level):
         
-        text_control = self.message_access_level.get(text_control)
-        m = message.Message(id, text, text_control.value)
+        #text_control = self.message_access_level.get(text_control)
+        #m = message.Message(id, text, text_control.value)
         
         for m in self._messages:
             if m.get_id() == id:
-                m.update_text(text)
+                if self.security_condition_write(user_control_level, m.text_control):
+                    m.update_text(text)
+                else:
+                    print("YOU DON'T HAVE CLEARANCE!")
+                
 
     ##################################################
-    # MESSAGES :: REMOVE   # TODO: WRITE --check in a bit
+    # MESSAGES :: REMOVE   # TODO: WRITE -- debug
     # Remove a single message
     ################################################## 
-    def remove(self, id, text_control):
+    def remove(self, id, user_control_level):
     
-        text_control = self.message_access_level.get(text_control)
-        m = message.Message(id, text_control.value)
-        # self._messages.append(m) -- see if needed
+        # text_control = self.message_access_level.get(text_control)
+        # m = message.Message(id, text_control.value)
+        # # self._messages.append(m) -- see if needed
  
         for m in self._messages:
             if m.get_id() == id:
-                m.clear()
+                if self.security_condition_write(user_control_level, m.text_control):
+                    m.clear()
+            else:
+                print("YOU DON'T HAVE CLEARANCE!")
 
     ##################################################
-    # MESSAGES :: ADD --- Reference for write
+    # MESSAGES :: ADD --- Reference for write methods.-- checked
     # Add a new message
     ################################################## 
-    def add(self, text, author, date, text_control):
+    def add(self, text, author, date, text_control, user_control_level):
+        # Assign asset's text_control using corresponding dictionary values.
         text_control = self.message_access_level.get(text_control)
-        m = message.Message(text, author, date, text_control.value)
-        self._messages.append(m)
+        
+        # user_control_level = self.access_levels.get()
+
+        if self.security_condition_write(user_control_level, text_control.value):
+            # Create new message, passing in all pertinent information
+            m = message.Message(text, author, date, text_control.value)
+            self._messages.append(m)
+        else:
+            print("YOU DON'T HAVE CLEARANCE!")
+            
 
     ##################################################
     # MESSAGES :: READ MESSAGES
@@ -114,7 +141,7 @@ class Messages:
             with open(filename, "r") as f:
                 for line in f:
                     text_control, author, date, text = line.split('|') # Since we are getting text_control
-                    self.add(text.rstrip('\r\n'), author, date, text_control)
+                    self.add(text.rstrip('\r\n'), author, date, text_control, user_control_level=0)
 
         except FileNotFoundError:
             print(f"ERROR! Unable to open file \"{filename}\"")
