@@ -38,7 +38,7 @@ class Messages:
         self._read_messages(filename)
 
     ##################################################
-    # MESSAGES :: DISPLAY
+    # MESSAGES :: DISPLAY --- Reference for read
     # Display the list of messages
     ################################################## 
     def display(self, user_control_level):
@@ -50,36 +50,54 @@ class Messages:
     
 
     ##################################################
-    # MESSAGES :: SHOW   # TODO: READ OPERATION
+    # MESSAGES :: SHOW   # TODO: READ OPERATION --check in a bit
     # Show a single message
     ################################################## 
     def show(self, id):
+        # for m in self._messages:
+        #     if self.security_condition_read(user_control_level, m.text_control):
+        #         m.display_properties()
+        #     else:
+        #         print("YOU DON'T HAVE CLEARANCE!")
         for m in self._messages:
-            if m.get_id() == id:
+            # if m.get_id() == id:
+            if self.security_condition_read(id, m.text_control):
                 m.display_text()
-                return True
-        return False
+                # return True
+        # return False
+            else:
+                print("YOU DON'T HAVE CLEARANCE!")
+                
 
     ##################################################
-    # MESSAGES :: UPDATE   # TODO: WRITE OPERATION
+    # MESSAGES :: UPDATE   # TODO: WRITE OPERATION --check in a bit
     # Update a single message
     ################################################## 
-    def update(self, id, text):
+    def update(self, id, text, text_control):
+        
+        text_control = self.message_access_level.get(text_control)
+        m = message.Message(id, text, text_control.value)
+        
         for m in self._messages:
             if m.get_id() == id:
                 m.update_text(text)
 
     ##################################################
-    # MESSAGES :: REMOVE   # WRITE
+    # MESSAGES :: REMOVE   # TODO: WRITE --check in a bit
     # Remove a single message
     ################################################## 
-    def remove(self, id):
+    def remove(self, id, text_control):
+    
+        text_control = self.message_access_level.get(text_control)
+        m = message.Message(id, text_control.value)
+        # self._messages.append(m) -- see if needed
+ 
         for m in self._messages:
             if m.get_id() == id:
                 m.clear()
 
     ##################################################
-    # MESSAGES :: ADD
+    # MESSAGES :: ADD --- Reference for write
     # Add a new message
     ################################################## 
     def add(self, text, author, date, text_control):

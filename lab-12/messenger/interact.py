@@ -63,6 +63,14 @@ class Interact:
         # TODO: ADD IF STATEMENT. IF USERNAME IS IN ACCESS LEVEL, then
         # ASSIGN FROM ACCESS LEVEL. IF NOT IN ACCESS LEVEL, ASSIGN
         # PUBLIC CONTROL
+        if username in access_levels:
+            
+           pass
+        else:
+            pass
+     
+            
+            
         self.user_control_level = access_levels.get(username)
 
 
