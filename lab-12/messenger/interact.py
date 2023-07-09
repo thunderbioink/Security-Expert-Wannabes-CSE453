@@ -17,7 +17,12 @@ class User:
     def __init__(self, name, password):
         self.name = name
         self.password = password
-
+# 0, 1, 2 , 3 = pub, conf, priv, sec 
+# AdAb = Sec
+# CapChar = Priv
+# SeaSam = Conf
+# SeaSue= Conf
+# else= Pub
 userlist = [
    [ "AdmiralAbe",     "password" ],  
    [ "CaptainCharlie", "password" ], 

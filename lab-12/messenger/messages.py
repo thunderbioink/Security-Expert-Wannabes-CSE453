@@ -111,8 +111,8 @@ class Messages:
             if m.get_id() == id:
                 if self.security_condition_write(user_control_level, m.text_control):
                     m.clear()
-            else:
-                print("YOU DON'T HAVE CLEARANCE!")
+                else:
+                    print("YOU DON'T HAVE CLEARANCE!")
 
     ##################################################
     # MESSAGES :: ADD --- Reference for write methods.-- checked
