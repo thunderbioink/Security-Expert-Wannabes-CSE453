@@ -53,16 +53,16 @@ class Messages:
     # MESSAGES :: SHOW   # TODO: READ OPERATION --check in a bit
     # Show a single message
     ################################################## 
-    def show(self, id):
+    def show(self, id, user_control_level):
         # for m in self._messages:
         #     if self.security_condition_read(user_control_level, m.text_control):
         #         m.display_properties()
         #     else:
         #         print("YOU DON'T HAVE CLEARANCE!")
         for m in self._messages:
-            # if m.get_id() == id:
-            if self.security_condition_read(id, m.text_control):
-                m.display_text()
+            if m.get_id() == id:
+                if self.security_condition_read(user_control_level, m.text_control):
+                    m.display_text()
                 # return True
         # return False
             else:

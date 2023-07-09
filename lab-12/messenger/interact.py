@@ -60,20 +60,13 @@ class Interact:
         self._username = username
         self._p_messages = messages
         
-        # TODO: ADD IF STATEMENT. IF USERNAME IS IN ACCESS LEVEL, then
-        # ASSIGN FROM ACCESS LEVEL. IF NOT IN ACCESS LEVEL, ASSIGN
-        # PUBLIC CONTROL
         if username in access_levels:
             
-           pass
+            # Because the username is indeed in the access level,
+            # assign the control level of the user from access_levels.
+            self.user_control_level = access_levels.get(username)
         else:
-            pass
-     
-            
-            
-        self.user_control_level = access_levels.get(username)
-
-
+            self.user_control_level = control.Control.PUBLIC
 
     ##################################################
     # INTERACT :: SHOW
@@ -81,7 +74,7 @@ class Interact:
     ##################################################
     def show(self):
         id_ = self._prompt_for_id("display")
-        if not self._p_messages.show(id_):
+        if not self._p_messages.show(id_, self.user_control_level.value):
             print(f"ERROR! Message ID \'{id_}\' does not exist")
         print()
 
